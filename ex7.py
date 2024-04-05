@@ -1,12 +1,16 @@
 # I import the neccessary functions I made and stored in functions.py.
 # Please view functions.py to go through the functions
-from functions import Letter_Grader, Total
+from functions import Letter_Grader, Total, average
 
 
 ''' Main Program '''
 # I initialize two empty lists, one to hold the student details and one to hold only student ids so that deuplicate entries are not made
 student_details = []
 student_Ids = []
+class_Total = int()
+Average = int()
+marks = []
+failures = 0
 
 # I use a while loop to continuously iterate until the break condition is met
 while True:
@@ -59,7 +63,28 @@ while True:
     # We then append the details about the student in a list form to the student_details list, which holds all student data
     student_details.append([Student_Id, Quiz1, Quiz2, Final, Total_Marks, Letter_Grade])
     
+    Average = average(Total_Marks)
+    
+    marks.append(Total_Marks)
+    
+    highest = 0
+    
+    for i in marks:
+        if i >= highest:
+            highest = i
+            lowest = i
+    
+    for i in marks:
+        if i <= lowest:
+            lowest = i
+        
     # We print out the student data to be viewed
     print()
     print(student_details)      
-    print()  
+    print()
+    print(f"the average marks in the class is: {Average}")
+    print(f"the highest marks in the class is: {highest}")
+    print(f"the lowest marks in the class is: {lowest}")
+    print()
+    
+      
