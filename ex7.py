@@ -1,6 +1,6 @@
 # I import the neccessary functions I made and stored in functions.py.
 # Please view functions.py to go through the functions
-from functions import Letter_Grader, Total, average
+from functions import Letter_Grader, Total, deans_list
 
 
 ''' Main Program '''
@@ -63,7 +63,8 @@ while True:
     # We then append the details about the student in a list form to the student_details list, which holds all student data
     student_details.append([Student_Id, Quiz1, Quiz2, Final, Total_Marks, Letter_Grade])
     
-    Average = average(Total_Marks)
+    class_Total = class_Total + Total_Marks
+    Average = class_Total/len(student_details)
     
     marks.append(Total_Marks)
     
@@ -77,7 +78,10 @@ while True:
     for i in marks:
         if i <= lowest:
             lowest = i
-        
+            
+    if Letter_Grade == "N":
+        failures += 1
+            
     # We print out the student data to be viewed
     print()
     print(student_details)      
@@ -85,6 +89,10 @@ while True:
     print(f"the average marks in the class is: {Average}")
     print(f"the highest marks in the class is: {highest}")
     print(f"the lowest marks in the class is: {lowest}")
+    print(f"the number of students failing the class is: {failures}")
     print()
+    deans_list = []
+    deans_list = deans_list(Student_Id, student_details)
+    print(f"the students scoring above 80 are: {deans_list}")
     
       

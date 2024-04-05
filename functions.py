@@ -24,9 +24,8 @@ def Letter_Grader(Total_Marks):
         
     return Letter_Grade        
 
-def average(total_marks, list):
-    class_Total = 0
-    class_Total = class_Total + total_marks
-    Average = class_Total/len(list)
+def deans_list(Student_Id, student_details):
+    deans_list = []
+    deans_list = [Student_Id for i in student_details if i[-1] == "HD" and Student_Id not in deans_list]
     
-    return Average
+    return deans_list
