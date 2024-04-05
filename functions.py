@@ -24,8 +24,3 @@ def Letter_Grader(Total_Marks):
         
     return Letter_Grade        
 
-def deans_list(Student_Id, student_details):
-    deans_list = []
-    deans_list = [Student_Id for i in student_details if i[-1] == "HD" and Student_Id not in deans_list]
-    
-    return deans_list
